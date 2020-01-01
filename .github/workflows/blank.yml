@@ -12,5 +12,5 @@ jobs:
       with:
         repository: apache/tomcat
         ref: master
-        path: /tmp/tomcat
-    - run: ls /tmp/tomcat
+        path: ./tomcat
+    - run: ls ./tomcat
