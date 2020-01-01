@@ -8,9 +8,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
       with:
         repository: apache/tomcat
         ref: master
-        path: "${GITHUB_WORKSPACE}/tomcat"
+        path: ./tomcat
     - run: ls "${GITHUB_WORKSPACE}/tomcat"
