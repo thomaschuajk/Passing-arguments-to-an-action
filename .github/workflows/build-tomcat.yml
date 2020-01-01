@@ -1,4 +1,4 @@
-name: CI
+name: Build Tomcat
 
 on: [push]
 
@@ -8,25 +8,31 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Check out the repository code
+    - name: Check out tomcat-users.xml
       uses: actions/checkout@v2
       
     - name: Check out Apache Tomcat
       uses: actions/checkout@v2
       with:
-        repository: apache/tomcat
-        ref: master
-        path: ./tomcat
+        repository: apache/tomcat # Repository name with owner
+        ref: master               # The branch, tag or SHA to checkout
+        path: ./tomcat            # Relative path under $GITHUB_WORKSPACE
 
-    - name: Copy tomcat-users.xml
-      run: cp tomcat-users.xml ./tomcat/conf/tomcat-users.xml
+    - uses: actions/setup-java@v1
+      with:
+        java-version: '9.0.4'     # The JDK version to make available on the path
+        java-package: jdk         # (jre, jdk, or jdk+fx) - defaults to jdk
+        architecture: x64       # (x64 or x86) - defaults to x64
       
+    - name: Copy tomcat-users.xml into Tomcat configuration directory
+      run: cp tomcat-users.xml ./tomcat/conf/tomcat-users.xml
+
+    - name: Check tool versions
+      run: |
+        java -version
+        ant -version
+
     - name: Compile Tomcat
       run: |
         cd ./tomcat
         ant
-
-    - name: Test Tomcat
-      run: |
-        cd ./tomcat
-        ant test
