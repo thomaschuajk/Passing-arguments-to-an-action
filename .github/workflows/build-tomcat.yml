@@ -10,6 +10,9 @@ jobs:
     steps:
     - name: Check out tomcat-users.xml
       uses: actions/checkout@v2
+
+    - name: List project files
+      run: ls -ltr
       
     - name: Check out Apache Tomcat
       uses: actions/checkout@v2
