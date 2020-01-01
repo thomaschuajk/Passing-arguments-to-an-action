@@ -22,7 +22,6 @@ jobs:
     - name: Compile Tomcat
       run: |
         cd ${GITHUB_WORKSPACE}/tomcat
-        cat build.properties
         ant
 
     - name: List the Tomcat build output
