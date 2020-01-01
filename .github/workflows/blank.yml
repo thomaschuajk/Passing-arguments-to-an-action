@@ -8,9 +8,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Check out Apache Tomcat
+      uses: actions/checkout@v2
       with:
         repository: apache/tomcat
         ref: master
         path: ./tomcat
-    - run: ls "${GITHUB_WORKSPACE}/tomcat"
+
+    - name: List the Tomcat files in the workspace
+      run: ls ${GITHUB_WORKSPACE}/tomcat
+      
+    - name: Compile Tomcat
+      run: |
+        cd ${GITHUB_WORKSPACE}/tomcat
+        ant
