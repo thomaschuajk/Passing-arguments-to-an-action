@@ -12,5 +12,5 @@ jobs:
       with:
         repository: apache/tomcat
         ref: master
-        path: ./tomcat
-    - run: pwd
+        path: ${GITHUB_WORKSPACE}/tomcat
+    - run: ${GITHUB_WORKSPACE}/tomcat
