@@ -25,3 +25,8 @@ jobs:
       run: |
         cd ./tomcat
         ant
+
+    - name: Test Tomcat
+      run: |
+        cd ./tomcat
+        ant test
