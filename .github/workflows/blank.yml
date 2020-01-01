@@ -13,4 +13,4 @@ jobs:
         repository: apache/tomcat
         ref: master
         path: ./tomcat
-    - run: ls /home/runner/work/03_03-Passing-arguments-to-an-action/tomcat
+    - run: ls
