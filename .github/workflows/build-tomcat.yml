@@ -19,9 +19,9 @@ jobs:
         path: ./tomcat
 
     - name: Copy tomcat-users.xml
-      run: cp tomcat-users.xml ${GITHUB_WORKSPACE}/tomcat/conf/tomcat-users.xml
+      run: cp tomcat-users.xml ./tomcat/conf/tomcat-users.xml
       
     - name: Compile Tomcat
       run: |
-        cd ${GITHUB_WORKSPACE}/tomcat
+        cd ./tomcat
         ant
