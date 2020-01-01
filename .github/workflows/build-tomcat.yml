@@ -13,7 +13,7 @@ jobs:
 
     - name: List project files
       run: ls -ltr
-      
+
     - name: Check out Apache Tomcat
       uses: actions/checkout@v2
       with:
@@ -27,7 +27,10 @@ jobs:
         java-version: '9.0.4'     # The JDK version to make available on the path
         java-package: jdk         # (jre, jdk, or jdk+fx) - defaults to jdk
         architecture: x64         # (x64 or x86) - defaults to x64
-      
+
+    - name: List project files
+      run: ls -ltr
+
     - name: Copy tomcat-users.xml into Tomcat configuration directory
       run: cp -v tomcat-users.xml ./tomcat/conf/tomcat-users.xml
 
