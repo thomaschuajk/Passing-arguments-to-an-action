@@ -12,5 +12,5 @@ jobs:
       with:
         repository: apache/tomcat
         ref: master
-        path: ./tomcat
-    - run: ls ${GITHUB_WORKSPACE}/tomcat
+        path: "${GITHUB_WORKSPACE}/tomcat"
+    - run: ls "${GITHUB_WORKSPACE}/tomcat"
