@@ -13,4 +13,4 @@ jobs:
         repository: apache/tomcat
         ref: master
         path: ./tomcat
-    - run: ls
+    - run: pwd
