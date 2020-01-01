@@ -1,6 +1,6 @@
 name: Build Tomcat
 
-on: [push]
+on: [pull_request]
 
 jobs:
   build:
@@ -29,7 +29,7 @@ jobs:
         architecture: x64         # (x64 or x86) - defaults to x64
       
     - name: Copy tomcat-users.xml into Tomcat configuration directory
-      run: cp tomcat-users.xml ./tomcat/conf/tomcat-users.xml
+      run: cp -v tomcat-users.xml ./tomcat/conf/tomcat-users.xml
 
     - name: Check tool versions
       run: |
