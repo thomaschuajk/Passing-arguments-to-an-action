@@ -16,13 +16,10 @@ jobs:
         ref: master
         path: ./tomcat
 
-    - name: List the Tomcat source files
-      run: ls -ltr ${GITHUB_WORKSPACE}/tomcat
+    - name: Copy tomcat-users.xml
+      run: cp tomcat-users.xml ${GITHUB_WORKSPACE}/tomcat/conf/tomcat-users.xml
       
     - name: Compile Tomcat
       run: |
         cd ${GITHUB_WORKSPACE}/tomcat
         ant
-
-    - name: List the Tomcat build output
-      run: ls -ltr ${GITHUB_WORKSPACE}/tomcat/output/build/bin
